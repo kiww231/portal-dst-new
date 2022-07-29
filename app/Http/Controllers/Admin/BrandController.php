@@ -45,7 +45,7 @@ class BrandController extends Controller
         ]);
 
         $file_name = time() . '_brand.' . $request->file('image')->extension();
-        $request->file('image')->move(public_path('storage/brand'), $file_name);
+        $request->file('image')->move(storage_path('app/public/brand'), $file_name);
 
         $data = $request->all();
         $data['image'] = $file_name;
@@ -99,12 +99,12 @@ class BrandController extends Controller
         $data = Brand::find($id);
         $file_name = $data->image;
         if($request->image){
-            if(File::exists(public_path('storage/brand/'.$data->image))){
-                File::delete(public_path('storage/brand/'.$data->image));
+            if(File::exists(storage_path('app/public/brand'.$data->image))){
+                File::delete(storage_path('app/public/brand'.$data->image));
             }
     
             $file_name = time() . '_brand.' . $request->file('image')->extension();
-            $request->file('image')->move(public_path('storage/brand'), $file_name);
+            $request->file('image')->move(storage_path('app/public/brand'), $file_name);
         }
 
         $input = $request->all();
