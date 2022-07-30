@@ -31,7 +31,7 @@ class ImageLayerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -44,7 +44,7 @@ class ImageLayerController extends Controller
         ]);
 
         $file_name = time() . '_image_layer.' . $request->file('image')->extension();
-        $request->file('image')->move(public_path('storage/image_layer'), $file_name);
+        $request->file('image')->move(public_path('uploads/image_layer'), $file_name);
 
         $data = $request->all();
         $data['image'] = $file_name;
@@ -81,7 +81,7 @@ class ImageLayerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -97,12 +97,12 @@ class ImageLayerController extends Controller
         $data = ImageLayer::find($id);
         $file_name = $data->image;
         if($request->image){
-            if(File::exists(public_path('storage/image_layer/'.$data->image))){
-                File::delete(public_path('storage/image_layer/'.$data->image));
+            if(File::exists(public_path('uploads/image_layer/'.$data->image))){
+                File::delete(public_path('uploads/image_layer/'.$data->image));
             }
     
             $file_name = time() . '_image_layer.' . $request->file('image')->extension();
-            $request->file('image')->move(public_path('storage/image_layer'), $file_name);
+            $request->file('image')->move(public_path('uploads/image_layer'), $file_name);
         }
 
         $input = $request->all();
@@ -117,7 +117,7 @@ class ImageLayerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -126,8 +126,8 @@ class ImageLayerController extends Controller
     {
         $data = ImageLayer::find($id);
 
-        if(File::exists(public_path('storage/image_layer/'.$data->image))){
-            File::delete(public_path('storage/image_layer/'.$data->image));
+        if(File::exists(public_path('uploads/image_layer/'.$data->image))){
+            File::delete(public_path('uploads/image_layer/'.$data->image));
         }
         
         $status = $data->delete();

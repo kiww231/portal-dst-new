@@ -31,7 +31,7 @@ class TrustedController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -64,7 +64,7 @@ class TrustedController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -86,12 +86,12 @@ class TrustedController extends Controller
         $data = Trusted::find($id);
         $file_name = $data->image;
         if($request->image){
-            if(File::exists(public_path('storage/trusted/'.$data->image))){
-                File::delete(public_path('storage/trusted/'.$data->image));
+            if(File::exists(public_path('uploads/trusted/'.$data->image))){
+                File::delete(public_path('uploads/trusted/'.$data->image));
             }
     
             $file_name = time() . '_trusted.' . $request->file('image')->extension();
-            $request->file('image')->move(public_path('storage/trusted'), $file_name);
+            $request->file('image')->move(public_path('uploads/trusted'), $file_name);
         }
 
         $input = $request->all();
@@ -106,7 +106,7 @@ class TrustedController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

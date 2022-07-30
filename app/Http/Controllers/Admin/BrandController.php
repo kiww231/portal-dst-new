@@ -31,7 +31,7 @@ class BrandController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -45,7 +45,7 @@ class BrandController extends Controller
         ]);
 
         $file_name = time() . '_brand.' . $request->file('image')->extension();
-        $request->file('image')->move(public_path('storage/brand'), $file_name);
+        $request->file('image')->move(public_path('uploads/brand'), $file_name);
 
         $data = $request->all();
         $data['image'] = $file_name;
@@ -82,7 +82,7 @@ class BrandController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -99,12 +99,12 @@ class BrandController extends Controller
         $data = Brand::find($id);
         $file_name = $data->image;
         if($request->image){
-            if(File::exists(public_path('storage/brand/'.$data->image))){
-                File::delete(public_path('storage/brand/'.$data->image));
+            if(File::exists(public_path('uploads/brand/'.$data->image))){
+                File::delete(public_path('uploads/brand/'.$data->image));
             }
     
             $file_name = time() . '_brand.' . $request->file('image')->extension();
-            $request->file('image')->move(public_path('storage/brand'), $file_name);
+            $request->file('image')->move(public_path('uploads/brand'), $file_name);
         }
 
         $input = $request->all();
@@ -119,7 +119,7 @@ class BrandController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -128,8 +128,8 @@ class BrandController extends Controller
     {
         $data = Brand::find($id);
 
-        if(File::exists(public_path('storage/brand/'.$data->image))){
-            File::delete(public_path('storage/brand/'.$data->image));
+        if(File::exists(public_path('uploads/brand/'.$data->image))){
+            File::delete(public_path('uploads/brand/'.$data->image));
         }
         
         $status = $data->delete();

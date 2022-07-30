@@ -30,6 +30,12 @@
                     <p>Dashboard</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{url('admin/recruitment')}}" class="nav-link {{ request()->is('admin/recruitment*') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-user-clock"></i>
+                    <p>Recruitment</p>
+                </a>
+            </li>
             <li class="nav-item {{ request()->is('admin/services*') || request()->is('admin/home-page*') || request()->is('admin/about*') || request()->is('admin/project*') || request()->is('admin/news*') || request()->is('admin/career*') || request()->is('admin/contact*') || request()->is('admin/image-layer*') ? 'menu-open' : '' }}">
                 <a href="#" class="nav-link {{ request()->is('admin/services*') || request()->is('admin/home-page*') || request()->is('admin/about*') || request()->is('admin/project*') || request()->is('admin/news*') || request()->is('admin/career*') || request()->is('admin/contact*') || request()->is('admin/image-layer*') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-laptop-code"></i>
@@ -137,6 +143,12 @@
                 </ul>
             </li>
             <li class="nav-item">
+                <a href="{{url('admin/team')}}" class="nav-link {{ request()->is('admin/team*') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-user-friends"></i>
+                    <p>Team</p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{url('admin/brand')}}" class="nav-link {{ request()->is('admin/brand*') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-images"></i>
                     <p>Brand</p>
@@ -148,24 +160,6 @@
                     <p>Testimonial</p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{url('admin/recruitment')}}" class="nav-link {{ request()->is('admin/recruitment*') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-user-clock"></i>
-                    <p>Recruitment</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{url('admin/menu')}}" class="nav-link {{ request()->is('admin/menu*') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-bars"></i>
-                    <p>Menu</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{url('admin/team')}}" class="nav-link {{ request()->is('admin/team*') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-user-friends"></i>
-                    <p>Team</p>
-                </a>
-            </li>
             @if(Auth::user()->type == 1)
             <li class="nav-item">
                 <a href="{{url('admin/user')}}" class="nav-link {{ request()->is('admin/user*') ? 'active' : '' }}">
@@ -174,6 +168,12 @@
                 </a>
             </li>
             @endif
+            <li class="nav-item">
+                <a href="{{url('admin/menu')}}" class="nav-link {{ request()->is('admin/menu*') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-bars"></i>
+                    <p>Menu</p>
+                </a>
+            </li>
             <li class="nav-item">
                 <a href="{{url('admin/attributes')}}" class="nav-link {{ request()->is('admin/attributes*') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-cogs"></i>

@@ -31,7 +31,7 @@ class AttributesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -64,7 +64,7 @@ class AttributesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -84,30 +84,30 @@ class AttributesController extends Controller
         $logo_name = $data->logo;
         $logo_white_name = $data->logo_white;
         if($request->favicon){
-            if(File::exists(public_path('storage/attributes/'.$data->favicon))){
-                File::delete(public_path('storage/attributes/'.$data->favicon));
+            if(File::exists(public_path('uploads/attributes/'.$data->favicon))){
+                File::delete(public_path('uploads/attributes/'.$data->favicon));
             }
     
             $favicon_name = time() . '_favicon.' . $request->file('favicon')->extension();
-            $request->file('favicon')->move(public_path('storage/attributes'), $favicon_name);
+            $request->file('favicon')->move(public_path('uploads/attributes'), $favicon_name);
         }
 
         if($request->logo){
-            if(File::exists(public_path('storage/attributes/'.$data->logo))){
-                File::delete(public_path('storage/attributes/'.$data->logo));
+            if(File::exists(public_path('uploads/attributes/'.$data->logo))){
+                File::delete(public_path('uploads/attributes/'.$data->logo));
             }
     
             $logo_name = time() . '_logo.' . $request->file('logo')->extension();
-            $request->file('logo')->move(public_path('storage/attributes'), $logo_name);
+            $request->file('logo')->move(public_path('uploads/attributes'), $logo_name);
         }
         
         if($request->logo_white){
-            if(File::exists(public_path('storage/attributes/'.$data->logo_white))){
-                File::delete(public_path('storage/attributes/'.$data->logo_white));
+            if(File::exists(public_path('uploads/attributes/'.$data->logo_white))){
+                File::delete(public_path('uploads/attributes/'.$data->logo_white));
             }
     
             $logo_white_name = time() . '_logo_white.' . $request->file('logo_white')->extension();
-            $request->file('logo_white')->move(public_path('storage/attributes'), $logo_white_name);
+            $request->file('logo_white')->move(public_path('uploads/attributes'), $logo_white_name);
         }
 
         $input = $request->all();
@@ -124,7 +124,7 @@ class AttributesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

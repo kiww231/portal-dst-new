@@ -31,7 +31,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -46,7 +46,7 @@ class TeamController extends Controller
         ]);
 
         $file_name = time() . '_team.' . $request->file('image')->extension();
-        $request->file('image')->move(public_path('storage/team'), $file_name);
+        $request->file('image')->move(public_path('uploads/team'), $file_name);
 
         $data = $request->all();
         $data['image'] = $file_name;
@@ -83,7 +83,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -101,12 +101,12 @@ class TeamController extends Controller
         $data = Team::find($id);
         $file_name = $data->image;
         if($request->image){
-            if(File::exists(public_path('storage/team/'.$data->image))){
-                File::delete(public_path('storage/team/'.$data->image));
+            if(File::exists(public_path('uploads/team/'.$data->image))){
+                File::delete(public_path('uploads/team/'.$data->image));
             }
     
             $file_name = time() . '_team.' . $request->file('image')->extension();
-            $request->file('image')->move(public_path('storage/team'), $file_name);
+            $request->file('image')->move(public_path('uploads/team'), $file_name);
         }
 
         $input = $request->all();
@@ -121,7 +121,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -130,8 +130,8 @@ class TeamController extends Controller
     {
         $data = Team::find($id);
 
-        if(File::exists(public_path('storage/team/'.$data->image))){
-            File::delete(public_path('storage/team/'.$data->image));
+        if(File::exists(public_path('uploads/team/'.$data->image))){
+            File::delete(public_path('uploads/team/'.$data->image));
         }
         
         $status = $data->delete();

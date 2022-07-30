@@ -62,7 +62,7 @@
     <section class="brand-one" style="padding-bottom: 99px">
     @endif
         <div class="container">
-            <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
+            <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 500 }, "breakpoints": {
                 "0": {
                     "spaceBetween": 30,
                     "slidesPerView": 2
@@ -408,6 +408,8 @@
             </div>
         </div>
     </section>
+    @else
+    <section style="margin-bottom: -200px;"></section>
     @endif
     <!--Testimonial One End-->
 

@@ -33,7 +33,7 @@ class ServicesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -51,13 +51,13 @@ class ServicesController extends Controller
         ]);
 
         $image_name = time() . '_image.' . $request->file('image')->extension();
-        $request->file('image')->move(public_path('storage/services'), $image_name);
+        $request->file('image')->move(public_path('uploads/services'), $image_name);
 
         $icon_name = time() . '_icon.' . $request->file('icon')->extension();
-        $request->file('icon')->move(public_path('storage/services'), $icon_name);
+        $request->file('icon')->move(public_path('uploads/services'), $icon_name);
 
         $banner_name = time() . '_banner.' . $request->file('banner')->extension();
-        $request->file('banner')->move(public_path('storage/services'), $banner_name);
+        $request->file('banner')->move(public_path('uploads/services'), $banner_name);
 
         $data = $request->all();
         $data['image'] = $image_name;
@@ -100,7 +100,7 @@ class ServicesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -124,28 +124,28 @@ class ServicesController extends Controller
         $icon_name = $data->icon;
         $banner_name = $data->banner;
         if($request->image){
-            if(File::exists(public_path('storage/services/'.$data->image))){
-                File::delete(public_path('storage/services/'.$data->image));
+            if(File::exists(public_path('uploads/services/'.$data->image))){
+                File::delete(public_path('uploads/services/'.$data->image));
             }
     
             $image_name = time() . '_image.' . $request->file('image')->extension();
-            $request->file('image')->move(public_path('storage/services'), $image_name);
+            $request->file('image')->move(public_path('uploads/services'), $image_name);
         }
         if($request->icon){
-            if(File::exists(public_path('storage/services/'.$data->icon))){
-                File::delete(public_path('storage/services/'.$data->icon));
+            if(File::exists(public_path('uploads/services/'.$data->icon))){
+                File::delete(public_path('uploads/services/'.$data->icon));
             }
     
             $icon_name = time() . '_icon.' . $request->file('icon')->extension();
-            $request->file('icon')->move(public_path('storage/services'), $icon_name);
+            $request->file('icon')->move(public_path('uploads/services'), $icon_name);
         }
         if($request->banner){
-            if(File::exists(public_path('storage/services/'.$data->banner))){
-                File::delete(public_path('storage/services/'.$data->banner));
+            if(File::exists(public_path('uploads/services/'.$data->banner))){
+                File::delete(public_path('uploads/services/'.$data->banner));
             }
     
             $banner_name = time() . '_banner.' . $request->file('banner')->extension();
-            $request->file('banner')->move(public_path('storage/services'), $banner_name);
+            $request->file('banner')->move(public_path('uploads/services'), $banner_name);
         }
 
         $input = $request->all();
@@ -166,7 +166,7 @@ class ServicesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -175,16 +175,16 @@ class ServicesController extends Controller
     {
         $data = Services::find($id);
 
-        if(File::exists(public_path('storage/services/'.$data->image))){
-            File::delete(public_path('storage/services/'.$data->image));
+        if(File::exists(public_path('uploads/services/'.$data->image))){
+            File::delete(public_path('uploads/services/'.$data->image));
         }
 
-        if(File::exists(public_path('storage/services/'.$data->icon))){
-            File::delete(public_path('storage/services/'.$data->icon));
+        if(File::exists(public_path('uploads/services/'.$data->icon))){
+            File::delete(public_path('uploads/services/'.$data->icon));
         }
 
-        if(File::exists(public_path('storage/services/'.$data->banner))){
-            File::delete(public_path('storage/services/'.$data->banner));
+        if(File::exists(public_path('uploads/services/'.$data->banner))){
+            File::delete(public_path('uploads/services/'.$data->banner));
         }
         
         $status = $data->delete();
@@ -249,38 +249,38 @@ class ServicesController extends Controller
         $help_name = $data->help_image;
         $benefits_name = $data->benefits_image;
         if($request->banner){
-            if(File::exists(public_path('storage/banner/'.$data->banner))){
-                File::delete(public_path('storage/banner/'.$data->banner));
+            if(File::exists(public_path('uploads/banner/'.$data->banner))){
+                File::delete(public_path('uploads/banner/'.$data->banner));
             }
     
             $banner_name = time() . '_services_attribute.' . $request->file('banner')->extension();
-            $request->file('banner')->move(public_path('storage/banner'), $banner_name);
+            $request->file('banner')->move(public_path('uploads/banner'), $banner_name);
         }
 
         if($request->video_thumbnail){
-            if(File::exists(public_path('storage/services/'.$data->video_thumbnail))){
-                File::delete(public_path('storage/services/'.$data->video_thumbnail));
+            if(File::exists(public_path('uploads/services/'.$data->video_thumbnail))){
+                File::delete(public_path('uploads/services/'.$data->video_thumbnail));
             }
     
             $video_name = time() . '_video_thumbnail.' . $request->file('video_thumbnail')->extension();
-            $request->file('video_thumbnail')->move(public_path('storage/services'), $video_name);
+            $request->file('video_thumbnail')->move(public_path('uploads/services'), $video_name);
         }
 
         if($request->help_image){
-            if(File::exists(public_path('storage/services/'.$data->help_image))){
-                File::delete(public_path('storage/services/'.$data->help_image));
+            if(File::exists(public_path('uploads/services/'.$data->help_image))){
+                File::delete(public_path('uploads/services/'.$data->help_image));
             }
     
             $help_name = time() . '_help_image.' . $request->file('help_image')->extension();
-            $request->file('help_image')->move(public_path('storage/services'), $help_name);
+            $request->file('help_image')->move(public_path('uploads/services'), $help_name);
         }
         if($request->benefits_image){
-            if(File::exists(public_path('storage/services/'.$data->benefits_image))){
-                File::delete(public_path('storage/services/'.$data->benefits_image));
+            if(File::exists(public_path('uploads/services/'.$data->benefits_image))){
+                File::delete(public_path('uploads/services/'.$data->benefits_image));
             }
     
             $benefits_name = time() . '_benefits_image.' . $request->file('benefits_image')->extension();
-            $request->file('benefits_image')->move(public_path('storage/services'), $benefits_name);
+            $request->file('benefits_image')->move(public_path('uploads/services'), $benefits_name);
         }
 
         $input = $request->all();

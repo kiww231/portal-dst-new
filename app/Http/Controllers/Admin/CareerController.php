@@ -33,7 +33,7 @@ class CareerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -53,13 +53,13 @@ class CareerController extends Controller
         ]);
 
         $thumbnail_name = time() . '_thumbnail.' . $request->file('thumbnail')->extension();
-        $request->file('thumbnail')->move(public_path('storage/career'), $thumbnail_name);
+        $request->file('thumbnail')->move(public_path('uploads/career'), $thumbnail_name);
         
         $image_name = time() . '_image.' . $request->file('image')->extension();
-        $request->file('image')->move(public_path('storage/career'), $image_name);
+        $request->file('image')->move(public_path('uploads/career'), $image_name);
         
         $banner_name = time() . '_banner.' . $request->file('banner')->extension();
-        $request->file('banner')->move(public_path('storage/career'), $banner_name);
+        $request->file('banner')->move(public_path('uploads/career'), $banner_name);
 
         $data = $request->all();
         $data['start_date'] = date('Y-m-d', strtotime(str_replace("/", "-", $request->start_date)));
@@ -101,7 +101,7 @@ class CareerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -127,28 +127,28 @@ class CareerController extends Controller
         $image_name = $data->image;
         $banner_name = $data->banner;
         if($request->thumbnail){
-            if(File::exists(public_path('storage/career/'.$data->thumbnail))){
-                File::delete(public_path('storage/career/'.$data->thumbnail));
+            if(File::exists(public_path('uploads/career/'.$data->thumbnail))){
+                File::delete(public_path('uploads/career/'.$data->thumbnail));
             }
     
             $thumbnail_name = time() . '_thumbnail.' . $request->file('thumbnail')->extension();
-            $request->file('thumbnail')->move(public_path('storage/career'), $thumbnail_name);
+            $request->file('thumbnail')->move(public_path('uploads/career'), $thumbnail_name);
         }
         if($request->image){
-            if(File::exists(public_path('storage/career/'.$data->image))){
-                File::delete(public_path('storage/career/'.$data->image));
+            if(File::exists(public_path('uploads/career/'.$data->image))){
+                File::delete(public_path('uploads/career/'.$data->image));
             }
     
             $image_name = time() . '_image.' . $request->file('image')->extension();
-            $request->file('image')->move(public_path('storage/career'), $image_name);
+            $request->file('image')->move(public_path('uploads/career'), $image_name);
         }
         if($request->banner){
-            if(File::exists(public_path('storage/career/'.$data->banner))){
-                File::delete(public_path('storage/career/'.$data->banner));
+            if(File::exists(public_path('uploads/career/'.$data->banner))){
+                File::delete(public_path('uploads/career/'.$data->banner));
             }
     
             $banner_name = time() . '_banner.' . $request->file('banner')->extension();
-            $request->file('banner')->move(public_path('storage/career'), $banner_name);
+            $request->file('banner')->move(public_path('uploads/career'), $banner_name);
         }
         $input = $request->all();
         $input['start_date'] = date('Y-m-d', strtotime(str_replace("/", "-", $request->start_date)));
@@ -167,7 +167,7 @@ class CareerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -176,16 +176,16 @@ class CareerController extends Controller
     {
         $data = Career::find($id);
 
-        if(File::exists(public_path('storage/career/'.$data->thumbnail))){
-            File::delete(public_path('storage/career/'.$data->thumbnail));
+        if(File::exists(public_path('uploads/career/'.$data->thumbnail))){
+            File::delete(public_path('uploads/career/'.$data->thumbnail));
         }
         
-        if(File::exists(public_path('storage/career/'.$data->image))){
-            File::delete(public_path('storage/career/'.$data->image));
+        if(File::exists(public_path('uploads/career/'.$data->image))){
+            File::delete(public_path('uploads/career/'.$data->image));
         }
 
-        if(File::exists(public_path('storage/career/'.$data->banner))){
-            File::delete(public_path('storage/career/'.$data->banner));
+        if(File::exists(public_path('uploads/career/'.$data->banner))){
+            File::delete(public_path('uploads/career/'.$data->banner));
         }
         
         $status = $data->delete();
@@ -211,12 +211,12 @@ class CareerController extends Controller
         $data = CareerAttribute::find($id);
         $banner_name = $data->banner;
         if($request->banner){
-            if(File::exists(public_path('storage/banner/'.$data->banner))){
-                File::delete(public_path('storage/banner/'.$data->banner));
+            if(File::exists(public_path('uploads/banner/'.$data->banner))){
+                File::delete(public_path('uploads/banner/'.$data->banner));
             }
     
             $banner_name = time() . '_career_attribute.' . $request->file('banner')->extension();
-            $request->file('banner')->move(public_path('storage/banner'), $banner_name);
+            $request->file('banner')->move(public_path('uploads/banner'), $banner_name);
         }
 
         $input = $request->all();

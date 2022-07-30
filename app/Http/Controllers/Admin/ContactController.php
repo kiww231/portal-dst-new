@@ -31,7 +31,7 @@ class ContactController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -64,7 +64,7 @@ class ContactController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -82,12 +82,12 @@ class ContactController extends Controller
         $data = Contact::find($id);
         $file_name = $data->banner;
         if($request->banner){
-            if(File::exists(public_path('storage/banner/'.$data->banner))){
-                File::delete(public_path('storage/banner/'.$data->banner));
+            if(File::exists(public_path('uploads/banner/'.$data->banner))){
+                File::delete(public_path('uploads/banner/'.$data->banner));
             }
     
             $file_name = time() . '_contact.' . $request->file('banner')->extension();
-            $request->file('banner')->move(public_path('storage/banner'), $file_name);
+            $request->file('banner')->move(public_path('uploads/banner'), $file_name);
         }
 
         $input = $request->all();
@@ -102,7 +102,7 @@ class ContactController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

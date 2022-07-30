@@ -34,7 +34,7 @@ class NewsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -52,13 +52,13 @@ class NewsController extends Controller
         ]);
 
         $thumbnail_name = time() . '_thumbnail.' . $request->file('thumbnail')->extension();
-        $request->file('thumbnail')->move(public_path('storage/news'), $thumbnail_name);
+        $request->file('thumbnail')->move(public_path('uploads/news'), $thumbnail_name);
 
         $image_name = time() . '_image.' . $request->file('image')->extension();
-        $request->file('image')->move(public_path('storage/news'), $image_name);
+        $request->file('image')->move(public_path('uploads/news'), $image_name);
         
         $banner_name = time() . '_banner.' . $request->file('banner')->extension();
-        $request->file('banner')->move(public_path('storage/news'), $banner_name);
+        $request->file('banner')->move(public_path('uploads/news'), $banner_name);
 
         $data = $request->all();
         $data['date'] = date('Y-m-d', strtotime(str_replace("/", "-", $request->date)));
@@ -100,7 +100,7 @@ class NewsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -124,28 +124,28 @@ class NewsController extends Controller
         $image_name = $data->image;
         $banner_name = $data->banner;
         if($request->thumbnail){
-            if(File::exists(public_path('storage/news/'.$data->thumbnail))){
-                File::delete(public_path('storage/news/'.$data->thumbnail));
+            if(File::exists(public_path('uploads/news/'.$data->thumbnail))){
+                File::delete(public_path('uploads/news/'.$data->thumbnail));
             }
     
             $thumbnail_name = time() . '_thumbnail.' . $request->file('thumbnail')->extension();
-            $request->file('thumbnail')->move(public_path('storage/news'), $thumbnail_name);
+            $request->file('thumbnail')->move(public_path('uploads/news'), $thumbnail_name);
         }
         if($request->image){
-            if(File::exists(public_path('storage/news/'.$data->image))){
-                File::delete(public_path('storage/news/'.$data->image));
+            if(File::exists(public_path('uploads/news/'.$data->image))){
+                File::delete(public_path('uploads/news/'.$data->image));
             }
     
             $image_name = time() . '_image.' . $request->file('image')->extension();
-            $request->file('image')->move(public_path('storage/news'), $image_name);
+            $request->file('image')->move(public_path('uploads/news'), $image_name);
         }
         if($request->banner){
-            if(File::exists(public_path('storage/news/'.$data->banner))){
-                File::delete(public_path('storage/news/'.$data->banner));
+            if(File::exists(public_path('uploads/news/'.$data->banner))){
+                File::delete(public_path('uploads/news/'.$data->banner));
             }
     
             $banner_name = time() . '_banner.' . $request->file('banner')->extension();
-            $request->file('banner')->move(public_path('storage/news'), $banner_name);
+            $request->file('banner')->move(public_path('uploads/news'), $banner_name);
         }
         $input = $request->all();
         $input['date'] = date('Y-m-d', strtotime(str_replace("/", "-", $request->date)));
@@ -164,7 +164,7 @@ class NewsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -173,16 +173,16 @@ class NewsController extends Controller
     {
         $data = News::find($id);
 
-        if(File::exists(public_path('storage/news/'.$data->thumbnail))){
-            File::delete(public_path('storage/news/'.$data->thumbnail));
+        if(File::exists(public_path('uploads/news/'.$data->thumbnail))){
+            File::delete(public_path('uploads/news/'.$data->thumbnail));
         }
 
-        if(File::exists(public_path('storage/news/'.$data->image))){
-            File::delete(public_path('storage/news/'.$data->image));
+        if(File::exists(public_path('uploads/news/'.$data->image))){
+            File::delete(public_path('uploads/news/'.$data->image));
         }
 
-        if(File::exists(public_path('storage/news/'.$data->banner))){
-            File::delete(public_path('storage/news/'.$data->banner));
+        if(File::exists(public_path('uploads/news/'.$data->banner))){
+            File::delete(public_path('uploads/news/'.$data->banner));
         }
         
         $status = $data->delete();
@@ -208,12 +208,12 @@ class NewsController extends Controller
         $data = NewsAttribute::find($id);
         $banner_name = $data->banner;
         if($request->banner){
-            if(File::exists(public_path('storage/banner/'.$data->banner))){
-                File::delete(public_path('storage/banner/'.$data->banner));
+            if(File::exists(public_path('uploads/banner/'.$data->banner))){
+                File::delete(public_path('uploads/banner/'.$data->banner));
             }
     
             $banner_name = time() . '_news_attribute.' . $request->file('banner')->extension();
-            $request->file('banner')->move(public_path('storage/banner'), $banner_name);
+            $request->file('banner')->move(public_path('uploads/banner'), $banner_name);
         }
 
         $input = $request->all();

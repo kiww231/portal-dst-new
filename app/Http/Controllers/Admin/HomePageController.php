@@ -31,7 +31,7 @@ class HomePageController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -64,7 +64,7 @@ class HomePageController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -104,36 +104,36 @@ class HomePageController extends Controller
         $improve_bg_name = $data->improve_background;
         $cta_name = $data->cta_background;
         if($request->trusted_image){
-            if(File::exists(public_path('storage/home_page/'.$data->trusted_image))){
-                File::delete(public_path('storage/home_page/'.$data->trusted_image));
+            if(File::exists(public_path('uploads/home_page/'.$data->trusted_image))){
+                File::delete(public_path('uploads/home_page/'.$data->trusted_image));
             }
     
             $trust_name = time() . '_trusted.' . $request->file('trusted_image')->extension();
-            $request->file('trusted_image')->move(public_path('storage/home_page'), $trust_name);
+            $request->file('trusted_image')->move(public_path('uploads/home_page'), $trust_name);
         }
         if($request->improve_image){
-            if(File::exists(public_path('storage/home_Page/'.$data->improve_image))){
-                File::delete(public_path('storage/home_Page/'.$data->improve_image));
+            if(File::exists(public_path('uploads/home_Page/'.$data->improve_image))){
+                File::delete(public_path('uploads/home_Page/'.$data->improve_image));
             }
     
             $improve_name = time() . '_improve.' . $request->file('improve_image')->extension();
-            $request->file('improve_image')->move(public_path('storage/home_Page'), $improve_name);
+            $request->file('improve_image')->move(public_path('uploads/home_Page'), $improve_name);
         }
         if($request->improve_background){
-            if(File::exists(public_path('storage/home_Page/'.$data->improve_background))){
-                File::delete(public_path('storage/home_Page/'.$data->improve_background));
+            if(File::exists(public_path('uploads/home_Page/'.$data->improve_background))){
+                File::delete(public_path('uploads/home_Page/'.$data->improve_background));
             }
     
             $improve_bg_name = time() . '_improve_background.' . $request->file('improve_background')->extension();
-            $request->file('improve_background')->move(public_path('storage/home_Page'), $improve_bg_name);
+            $request->file('improve_background')->move(public_path('uploads/home_Page'), $improve_bg_name);
         }
         if($request->cta_background){
-            if(File::exists(public_path('storage/home_page/'.$data->cta_background))){
-                File::delete(public_path('storage/home_page/'.$data->cta_background));
+            if(File::exists(public_path('uploads/home_page/'.$data->cta_background))){
+                File::delete(public_path('uploads/home_page/'.$data->cta_background));
             }
     
             $cta_name = time() . '_cta_background.' . $request->file('cta_background')->extension();
-            $request->file('cta_background')->move(public_path('storage/home_page'), $cta_name);
+            $request->file('cta_background')->move(public_path('uploads/home_page'), $cta_name);
         }
 
         $input = $request->all();
@@ -161,7 +161,7 @@ class HomePageController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
