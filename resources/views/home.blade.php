@@ -20,7 +20,7 @@
                 @foreach($image_layer as $val)
                 <div class="swiper-slide">
                     <div class="image-layer"
-                        style="background-image: url({{asset('storage/image_layer/'.$val->image)}});">
+                        style="background-image: url({{asset('uploads/image_layer/'.$val->image)}});">
                     </div>
                     <div class="image-layer-overlay"></div>
                     <!-- /.image-layer -->
@@ -91,7 +91,7 @@
                 <div class="swiper-wrapper">
                     @foreach($brand as $val_brand)
                     <div class="swiper-slide">
-                        <img src="{{asset('storage/brand/'.$val_brand->image)}}" alt="{{$val_brand->title}}" >
+                        <img src="{{asset('uploads/brand/'.$val_brand->image)}}" alt="{{$val_brand->title}}" >
                     </div><!-- /.swiper-slide -->
                     @endforeach
                 </div>
@@ -152,10 +152,10 @@
                     <div class="about-one__left wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
                         <div class="about-one__img-box">
                             <div class="about-one__img">
-                                <img src="{{asset('storage/about/'.@$about->image)}}" alt="">
+                                <img src="{{asset('uploads/about/'.@$about->image)}}" alt="">
                             </div>
                             <div class="about-one__small-img">
-                                <img src="{{asset('storage/about/'.@$about->image_small)}}" alt="">
+                                <img src="{{asset('uploads/about/'.@$about->image_small)}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -266,7 +266,7 @@
                         <div class="share-the-joy__right">
                             <div class="share-the-joy__img-box">
                                 <div class="share-the-joy__img wow fadeInRight" data-wow-duration="1500ms">
-                                    <img src="{{asset('storage/home_page/'.@$home_page->trusted_image)}}" alt=""
+                                    <img src="{{asset('uploads/home_page/'.@$home_page->trusted_image)}}" alt=""
                                         class="float-bob-2">
                                 </div>
                                 <div class="share-the-joy__trusted wow fadeIn" data-wow-duration="1500ms">
@@ -302,7 +302,7 @@
                 @foreach(@$projects as $val_prj)
                 <div class="project-one__single">
                     <div class="project-one__img">
-                        <img src="{{asset('storage/projects/'.@$val_prj->thumbnail)}}" alt="">
+                        <img src="{{asset('uploads/projects/'.@$val_prj->thumbnail)}}" alt="">
                     </div>
                     <div class="project-one__content">
                         <p class="project-one__tagline">{{@$val_prj->category}}</p>
@@ -323,7 +323,7 @@
     @if(@$home_page->improve_is_active == 1 AND count(@$services_improve) > 1)
     <section class="improve-one">
         <div class="improve-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-            style="background-image: url({{asset('storage/home_page/'.@$home_page->improve_background)}})"></div>
+            style="background-image: url({{asset('uploads/home_page/'.@$home_page->improve_background)}})"></div>
         <div class="improve-one-bg-overly"></div>
         <div class="container">
             <div class="row">
@@ -332,7 +332,7 @@
                         data-wow-duration="2500ms">
                         <div class="improve-one__img-box">
                             <div class="improve-one__img">
-                                <img src="{{asset('storage/home_page/'.@$home_page->improve_image)}}" alt="">
+                                <img src="{{asset('uploads/home_page/'.@$home_page->improve_image)}}" alt="">
                             </div>
                             <div class="improve-one__project-complete">
                                 <p>{{@$home_page->improve_project_complete}} PROJECTS ARE COMPLETED</p>
@@ -425,7 +425,7 @@
                     <!--News One Single-->
                     <div class="news-one__single">
                         <div class="news-one__img">
-                            <img src="{{asset('storage/news/'.@$val_news->thumbnail)}}" alt="">
+                            <img src="{{asset('uploads/news/'.@$val_news->thumbnail)}}" alt="">
                             <a href="{{url('news/'.@$val_news->slug)}}">
                                 <span class="news-one__plus"></span>
                             </a>
@@ -460,7 +460,7 @@
     @if(@$home_page->cta_is_active == 1)
     <section class="cta-one">
         <div class="cta-one__container">
-            <div class="cta-one-bg" style="background-image: url({{asset('storage/home_page/'.@$home_page->cta_background)}})"></div>
+            <div class="cta-one-bg" style="background-image: url({{asset('uploads/home_page/'.@$home_page->cta_background)}})"></div>
             <div class="cta-one-overly"></div>
             <div class="container">
                 <div class="col-lg-12">

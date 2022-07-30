@@ -8,7 +8,7 @@
                     <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                         <div class="footer-widget__column footer-widget__about">
                             <div class="footer-widget__about-logo">
-                                <a href="index.html"><img src="{{asset('storage/attributes/'.\App\Models\Attributes::first()->logo_white)}}" alt="" style="height: 50px;"></a>
+                                <a href="index.html"><img src="{{asset('uploads/attributes/'.\App\Models\Attributes::first()->logo_white)}}" alt="" style="height: 50px;"></a>
                             </div>
                             <p class="footer-widget__about-text">There are many vari of pass of lorem ipsum
                                 availab but the majority have suffered in some forms.</p>

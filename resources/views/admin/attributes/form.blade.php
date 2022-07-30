@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Favicon</label><br>
-                                <img id="output1" src="{{asset('storage/attributes/'.@$result->favicon)}}" style="height: 50px;"/>
+                                <img id="output1" src="{{asset('uploads/attributes/'.@$result->favicon)}}" style="height: 50px;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input @error('favicon') is-invalid @enderror" id="exampleInputFile" name="favicon" accept="image/gif, image/jpeg, image/png" oninput="output1.src=window.URL.createObjectURL(this.files[0])">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Logo</label><br>
-                                <img id="output" src="{{asset('storage/attributes/'.@$result->logo)}}" style="height: 50px; max-width: 100%; overflow: hidden;"/>
+                                <img id="output" src="{{asset('uploads/attributes/'.@$result->logo)}}" style="height: 50px; max-width: 100%; overflow: hidden;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input @error('logo') is-invalid @enderror" id="exampleInputFile" name="logo" accept="image/gif, image/jpeg, image/png" oninput="output.src=window.URL.createObjectURL(this.files[0])">
@@ -78,7 +78,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Logo Putih</label><br>
-                                <img id="output_wht" src="{{asset('storage/attributes/'.@$result->logo_white)}}" style="height: 50px; max-width: 100%; overflow: hidden;"/>
+                                <img id="output_wht" src="{{asset('uploads/attributes/'.@$result->logo_white)}}" style="height: 50px; max-width: 100%; overflow: hidden;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input @error('logo_white') is-invalid @enderror" id="exampleInputFile" name="logo_white" accept="image/gif, image/jpeg, image/png" oninput="output_wht.src=window.URL.createObjectURL(this.files[0])">

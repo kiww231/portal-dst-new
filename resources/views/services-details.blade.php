@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="page-header">
-    <div class="page-header-bg" style="background-image: url({{asset('storage/services/'.@$result->banner)}})">
+    <div class="page-header-bg" style="background-image: url({{asset('uploads/services/'.@$result->banner)}})">
     </div>
     <div class="page-header-bg-overly"></div>
     <!-- <div class="page-header-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"
@@ -27,7 +27,7 @@
             <div class="col-xl-8 col-lg-7">
                 <div class="service-details__right">
                     <div class="service-details__img">
-                        <img src="{{asset('storage/services/'.@$result->image)}}" alt="">
+                        <img src="{{asset('uploads/services/'.@$result->image)}}" alt="">
                     </div>
                     <div class="service-details__content">
                         <h3 class="service-details__title">{{@$result->title}}</h3>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="service-details__benefits-img">
-                                    <img src="{{asset('storage/services/'.@$services_att->benefits_image)}}" alt="">
+                                    <img src="{{asset('uploads/services/'.@$services_att->benefits_image)}}" alt="">
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="page-header">
-    <div class="page-header-bg" style="background-image: url({{asset('storage/banner/'.@$attribute->banner)}})">
+    <div class="page-header-bg" style="background-image: url({{asset('uploads/banner/'.@$attribute->banner)}})">
     </div>
     <div class="page-header-bg-overly"></div>
     <!-- <div class="page-header-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"
@@ -29,7 +29,7 @@
                 <!--News One Single-->
                 <div class="news-one__single">
                     <div class="news-one__img">
-                        <img src="{{asset('storage/news/'.$val_news->thumbnail)}}" alt="">
+                        <img src="{{asset('uploads/news/'.$val_news->thumbnail)}}" alt="">
                         <a href="{{url('news/'.@$val_news->slug)}}">
                             <span class="news-one__plus"></span>
                         </a>

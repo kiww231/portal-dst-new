@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PT. Daya Sinergi Teknomandiri</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('storage/attributes/'.\App\Models\Attributes::first()->favicon)}}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('storage/attributes/'.\App\Models\Attributes::first()->favicon)}}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('storage/attributes/'.\App\Models\Attributes::first()->favicon)}}" />
-    <link rel="manifest" href="{{asset('storage/attributes/'.\App\Models\Attributes::first()->favicon)}}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('uploads/attributes/'.\App\Models\Attributes::first()->favicon)}}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('uploads/attributes/'.\App\Models\Attributes::first()->favicon)}}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('uploads/attributes/'.\App\Models\Attributes::first()->favicon)}}" />
     <meta name="description" content="Daya Sinergi Teknomandiri" />
 
     <!-- fonts -->
@@ -160,8 +159,8 @@
     <script src="{{asset('assets')}}/vendors/vegas/vegas.min.js"></script>
     <script src="{{asset('assets')}}/vendors/jquery-ui/jquery-ui.js"></script>
     <script src="{{asset('assets')}}/vendors/timepicker/timePicker.js"></script>
-    <script src="{{asset('assets')}}/vendors/particles/particles.min.js"></script>
-    <script src="{{asset('assets')}}/vendors/particles/particles-config.js"></script>
+    <!-- <script src="{{asset('assets')}}/vendors/particles/particles.min.js"></script> -->
+    <!-- <script src="{{asset('assets')}}/vendors/particles/particles-config.js"></script> -->
     <!-- <script src="http://maps.google.com/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM"></script> -->
     @stack('js')
     <!-- template js -->

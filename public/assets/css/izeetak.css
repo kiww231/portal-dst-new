@@ -1749,7 +1749,7 @@ canvas {
 .brand-one {
     position: relative;
     display: block;
-    background-color: #eef3f7;
+    background-color: var(--thm-black);
     padding: 99px 0 208px;
 }
 
@@ -1767,7 +1767,7 @@ canvas {
 .brand-one .swiper-slide img {
     -webkit-transition: 500ms;
     transition: 500ms;
-    /* opacity: 0.3; */
+    opacity: 0.3;
     width: auto;
 }
 

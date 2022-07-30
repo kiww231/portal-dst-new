@@ -154,7 +154,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFile">Gambar Trusted</label><br>
-                                            <img id="output_trusted" src="{{asset('storage/home_page/'.@$result->trusted_image)}}" style="height: 50px;"/>
+                                            <img id="output_trusted" src="{{asset('uploads/home_page/'.@$result->trusted_image)}}" style="height: 50px;"/>
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input @error('trusted_image') is-invalid @enderror" id="exampleInputFile" name="trusted_image" accept="image/gif, image/jpeg, image/png" oninput="output_trusted.src=window.URL.createObjectURL(this.files[0])">
@@ -207,7 +207,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFile">Gambar Improve</label><br>
-                                            <img id="output_improve" src="{{asset('storage/home_page/'.@$result->improve_image)}}" style="height: 50px;"/>
+                                            <img id="output_improve" src="{{asset('uploads/home_page/'.@$result->improve_image)}}" style="height: 50px;"/>
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input @error('improve_image') is-invalid @enderror" id="exampleInputFile" name="improve_image" accept="image/gif, image/jpeg, image/png" oninput="output_improve.src=window.URL.createObjectURL(this.files[0])">
@@ -225,7 +225,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFile">Background Improve</label><br>
-                                            <img id="output_improve2" src="{{asset('storage/home_page/'.@$result->improve_background)}}" style="height: 50px;"/>
+                                            <img id="output_improve2" src="{{asset('uploads/home_page/'.@$result->improve_background)}}" style="height: 50px;"/>
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input @error('improve_background') is-invalid @enderror" id="exampleInputFile" name="improve_background" accept="image/gif, image/jpeg, image/png" oninput="output_improve2.src=window.URL.createObjectURL(this.files[0])">
@@ -276,7 +276,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFile">Background CTA</label><br>
-                                            <img id="output_cta" src="{{asset('storage/home_page/'.@$result->cta_background)}}" style="height: 50px;"/>
+                                            <img id="output_cta" src="{{asset('uploads/home_page/'.@$result->cta_background)}}" style="height: 50px;"/>
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input @error('cta_background') is-invalid @enderror" id="exampleInputFile" name="cta_background" accept="image/gif, image/jpeg, image/png" oninput="output_cta.src=window.URL.createObjectURL(this.files[0])">

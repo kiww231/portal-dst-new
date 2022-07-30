@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="page-header">
-        <div class="page-header-bg" style="background-image: url({{asset('storage/banner/'.@$about->banner)}})">
+        <div class="page-header-bg" style="background-image: url({{asset('uploads/banner/'.@$about->banner)}})">
         </div>
         <div class="page-header-bg-overly"></div>
         <!-- <div class="page-header-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"
@@ -27,7 +27,7 @@
                 <div class="col-xl-6">
                     <div class="about-two__left wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
                         <div class="about-two__img">
-                            <img src="{{asset('storage/about/'.@$about->image)}}" alt="">
+                            <img src="{{asset('uploads/about/'.@$about->image)}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                     <div class="swiper-wrapper">
                         @foreach($brand as $val_brand)
                         <div class="swiper-slide">
-                            <img src="{{asset('storage/brand/'.$val_brand->image)}}" alt="{{$val_brand->title}}">
+                            <img src="{{asset('uploads/brand/'.$val_brand->image)}}" alt="{{$val_brand->title}}">
                         </div><!-- /.swiper-slide -->
                         @endforeach
                     </div>
@@ -118,7 +118,7 @@
     @if(@$about->video_is_active == 1)
     <section class="video-one about-page-video">
         <div class="video-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-            style="background-image: url({{asset('storage/about/'.@$about->video_thumbnail)}})"></div>
+            style="background-image: url({{asset('uploads/about/'.@$about->video_thumbnail)}})"></div>
         <div class="video-one-bg-overly"></div>
         <div class="container">
             <div class="row">
@@ -199,7 +199,7 @@
                     <!--Team One Single-->
                     <div class="team-one__single  wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
                         <div class="team-one__img">
-                            <img src="{{asset('storage/team/'.@$val_team->image)}}" alt="">
+                            <img src="{{asset('uploads/team/'.@$val_team->image)}}" alt="">
                             <div class="team-one__social">
                                 <a href="{{@$val_team->twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>
                                 <a href="{{@$val_team->facebook}}" target="_blank"><i class="fab fa-facebook"></i></a>

@@ -80,7 +80,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Gambar</label><br>
-                                <img id="output_img" src="{{asset('storage/services/'.@$result->image)}}" style="height: 150px;"/>
+                                <img id="output_img" src="{{asset('uploads/services/'.@$result->image)}}" style="height: 150px;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="exampleInputFile" name="image" accept="image/gif, image/jpeg, image/png" oninput="output_img.src=window.URL.createObjectURL(this.files[0])">
@@ -99,7 +99,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Icon</label><br>
-                                <img id="output_icon" src="{{asset('storage/services/'.@$result->icon)}}" style="height: 150px;"/>
+                                <img id="output_icon" src="{{asset('uploads/services/'.@$result->icon)}}" style="height: 150px;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input @error('icon') is-invalid @enderror" id="exampleInputFile" name="icon" accept="image/gif, image/jpeg, image/png" oninput="output_icon.src=window.URL.createObjectURL(this.files[0])">
@@ -118,7 +118,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Banner</label><br>
-                                <img id="output_banner" src="{{asset('storage/services/'.@$result->banner)}}" style="height: 150px;"/>
+                                <img id="output_banner" src="{{asset('uploads/services/'.@$result->banner)}}" style="height: 150px;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input @error('banner') is-invalid @enderror" id="exampleInputFile" name="banner" accept="image/gif, image/jpeg, image/png" oninput="output_banner.src=window.URL.createObjectURL(this.files[0])">

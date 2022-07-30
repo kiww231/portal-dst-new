@@ -30,7 +30,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputFile">Banner</label><br>
-                                        <img id="output2" src="{{asset('storage/banner/'.@$result->banner)}}" style="height: 150px; width: 100%; overflow: hidden;"/>
+                                        <img id="output2" src="{{asset('uploads/banner/'.@$result->banner)}}" style="height: 150px; width: 100%; overflow: hidden;"/>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input @error('banner') is-invalid @enderror" id="exampleInputFile" name="banner" accept="image/gif, image/jpeg, image/png" oninput="output2.src=window.URL.createObjectURL(this.files[0])">
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile">Thumbnail Video</label><br>
-                                        <img id="output3" src="{{asset('storage/services/'.@$result->video_thumbnail)}}" style="height: 150px"/>
+                                        <img id="output3" src="{{asset('uploads/services/'.@$result->video_thumbnail)}}" style="height: 150px"/>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input @error('video_thumbnail') is-invalid @enderror" id="exampleInputFile" name="video_thumbnail" accept="image/gif, image/jpeg, image/png" oninput="output3.src=window.URL.createObjectURL(this.files[0])">
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile">Gambar Help</label><br>
-                                        <img id="output1" src="{{asset('storage/services/'.@$result->help_image)}}" style="height: 150px"/>
+                                        <img id="output1" src="{{asset('uploads/services/'.@$result->help_image)}}" style="height: 150px"/>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input @error('help_image') is-invalid @enderror" id="exampleInputFile" name="help_image" accept="image/gif, image/jpeg, image/png" oninput="output1.src=window.URL.createObjectURL(this.files[0])">
@@ -219,7 +219,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile">Gambar Benefits</label><br>
-                                        <img id="output4" src="{{asset('storage/services/'.@$result->benefits_image)}}" style="height: 150px"/>
+                                        <img id="output4" src="{{asset('uploads/services/'.@$result->benefits_image)}}" style="height: 150px"/>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input @error('benefits_image') is-invalid @enderror" id="exampleInputFile" name="benefits_image" accept="image/gif, image/jpeg, image/png" oninput="output4.src=window.URL.createObjectURL(this.files[0])">

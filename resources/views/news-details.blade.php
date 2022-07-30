@@ -4,7 +4,7 @@
 @endpush
 @section('content')
 <section class="page-header">
-    <div class="page-header-bg" style="background-image: url({{asset('storage/news/'.$news->banner)}})">
+    <div class="page-header-bg" style="background-image: url({{asset('uploads/news/'.$news->banner)}})">
     </div>
     <div class="page-header-bg-overly"></div>
     <!-- <div class="page-header-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"
@@ -29,7 +29,7 @@
             <div class="col-xl-8 col-lg-7">
                 <div class="news-details__left">
                     <div class="news-details__img">
-                        <img src="{{asset('storage/news/'.@$news->image)}}" alt="">
+                        <img src="{{asset('uploads/news/'.@$news->image)}}" alt="">
                         <div class="news-details__date-box">
                             <p>{{date('d',strtotime(@$news->date))}}<br> {{date('M',strtotime(@$news->date))}}</p>
                         </div>

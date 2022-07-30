@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="page-header">
-    <div class="page-header-bg" style="background-image: url({{asset('storage/projects/'.@$projects->banner)}})">
+    <div class="page-header-bg" style="background-image: url({{asset('uploads/projects/'.@$projects->banner)}})">
     </div>
     <div class="page-header-bg-overly"></div>
     <!-- <div class="page-header-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"
@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="project-details__img-box">
-                    <img src="{{asset('storage/projects/'.$projects->image)}}" alt="">
+                    <img src="{{asset('uploads/projects/'.$projects->image)}}" alt="">
                     <div class="project-details__details-box">
                         <ul class="project-details__details-info list-unstyled">
                             <li>
@@ -93,7 +93,7 @@
                 <!--Project One Single-->
                 <div class="project-one__single">
                     <div class="project-one__img">
-                        <img src="{{asset('storage/projects/'.@$val_get->thumbnail)}}" alt="">
+                        <img src="{{asset('uploads/projects/'.@$val_get->thumbnail)}}" alt="">
                     </div>
                     <div class="project-one__content">
                         <p class="project-one__tagline">{{@$val_get->category}}</p>

@@ -129,7 +129,7 @@
                                     <td class="text-center" style="width: 5px;">{{$no++}}</td>
                                     <td>{{$val->name}}</td>
                                     <td>{{$val->position}}</td>
-                                    <td class="text-center"><img src="{{asset('storage/team/'.$val->image)}}" alt="" style="width:100px;"></td>
+                                    <td class="text-center"><img src="{{asset('uploads/team/'.$val->image)}}" alt="" style="width:100px;"></td>
                                     <td class="text-center">
                                         @if($val->is_active == 1)
                                             <sapn class="badge badge-success">Aktif</sapn>

@@ -94,7 +94,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Foto</label><br>
-                                <img id="output" src="{{asset('storage/team/'.@$result->image)}}" style="height: 150px;"/>
+                                <img id="output" src="{{asset('uploads/team/'.@$result->image)}}" style="height: 150px;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="exampleInputFile" name="image" accept="image/gif, image/jpeg, image/png" oninput="output.src=window.URL.createObjectURL(this.files[0])">

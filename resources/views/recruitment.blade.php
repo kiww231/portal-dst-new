@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Recruitment DST</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('storage/attributes/'.\App\Models\Attributes::first()->favicon)}}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('uploads/attributes/'.\App\Models\Attributes::first()->favicon)}}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{asset('assets/admin')}}/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/admin')}}/dist/css/adminlte.min.css">
@@ -23,7 +23,7 @@
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
                 <a href="{{url('/')}}" class="navbar-brand">
-                    <img src="{{asset('storage/attributes/'.\App\Models\Attributes::first()->logo)}}" alt="Daya Sinergi" class="brand-image " style="opacity: .8">
+                    <img src="{{asset('uploads/attributes/'.\App\Models\Attributes::first()->logo)}}" alt="Daya Sinergi" class="brand-image " style="opacity: .8">
                 </a>
 
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

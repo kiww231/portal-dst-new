@@ -34,7 +34,7 @@
     <input type="hidden" id="alert" value="2" data-message="{{Session::get('error')}}" />
 @endif
 <section class="page-header">
-    <div class="page-header-bg" style="background-image: url({{asset('storage/banner/'.$contact->banner)}})">
+    <div class="page-header-bg" style="background-image: url({{asset('uploads/banner/'.$contact->banner)}})">
     </div>
     <div class="page-header-bg-overly"></div>
     <!-- <div class="page-header-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"

@@ -64,8 +64,3 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function(){
 
     Route::resource('/recruitment', 'Admin\RecruitmentController');
 });
-
-Route::get('/artisan/{config}', function($config) {
-    $exitCode = Artisan::call($config);
-    return 'Berhasil';
-}); 

@@ -49,7 +49,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputFile">Banner</label><br>
-                                        <img id="output2" src="{{asset('storage/banner/'.@$result->banner)}}" style="height: 150px; width: 100%; overflow: hidden;"/>
+                                        <img id="output2" src="{{asset('uploads/banner/'.@$result->banner)}}" style="height: 150px; width: 100%; overflow: hidden;"/>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input @error('banner') is-invalid @enderror" id="exampleInputFile" name="banner" accept="image/gif, image/jpeg, image/png" oninput="output2.src=window.URL.createObjectURL(this.files[0])">

@@ -39,7 +39,7 @@
             <div class="main-menu-wrapper-inner clearfix">
                 <div class="main-menu-wrapper__left clearfix">
                     <div class="main-menu-wrapper__logo" >
-                        <a href="{{url('/')}}"><img src="{{asset('storage/attributes/'.\App\Models\Attributes::first()->logo)}}" alt="" style="height: 40px;"></a>
+                        <a href="{{url('/')}}"><img src="{{asset('uploads/attributes/'.\App\Models\Attributes::first()->logo)}}" alt="" style="height: 40px;"></a>
                     </div>
                     <div class="main-menu-wrapper__main-menu">
                         <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>

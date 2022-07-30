@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="page-header">
-    <div class="page-header-bg" style="background-image: url({{asset('storage/career/'.$career->banner)}})">
+    <div class="page-header-bg" style="background-image: url({{asset('uploads/career/'.$career->banner)}})">
     </div>
     <div class="page-header-bg-overly"></div>
     <!-- <div class="page-header-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"
@@ -27,7 +27,7 @@
             <div class="col-xl-12 col-lg-7">
                 <div class="news-details__left">
                     <div class="news-details__img">
-                        <img src="{{asset('storage/career/'.@$career->image)}}" alt="">
+                        <img src="{{asset('uploads/career/'.@$career->image)}}" alt="">
                     </div>
                     <div class="news-details__content">
                         <ul class="list-unstyled news-details__meta">

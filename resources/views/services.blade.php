@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="page-header">
-    <div class="page-header-bg" style="background-image: url({{asset('storage/banner/'.@$services_attribute->banner)}})">
+    <div class="page-header-bg" style="background-image: url({{asset('uploads/banner/'.@$services_attribute->banner)}})">
     </div>
     <div class="page-header-bg-overly"></div>
     <!-- <div class="page-header-shape wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"
@@ -52,7 +52,7 @@
 @if($services_attribute->video_is_active == 1)
 <section class="video-one">
     <div class="video-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-        style="background-image: url({{asset('storage/services/'.@$services_attribute->video_thumbnail)}})"></div>
+        style="background-image: url({{asset('uploads/services/'.@$services_attribute->video_thumbnail)}})"></div>
     <div class="video-one-bg-overly"></div>
     <div class="container">
         <div class="row">
@@ -87,7 +87,7 @@
                             <h3 class="help__box-one-title">{{@$services_attribute->help_title}}</h3>
                         </div>
                         <div class="help__box-one-img">
-                            <img src="{{asset('storage/services/'.$services_attribute->help_image)}}" alt="">
+                            <img src="{{asset('uploads/services/'.$services_attribute->help_image)}}" alt="">
                         </div>
                     </li>
                     @foreach(@$services_help as $val_help)
