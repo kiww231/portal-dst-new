@@ -66,7 +66,7 @@
                         <ul class="sidebar__categories-list list-unstyled">
                             @foreach($categories as $val_cat)
                             <li>
-                                <a href="{{url('news?k='.$val_cat->title)}}" >{{$val_cat->title}}<span class="icon-right-arrow"></span></a>
+                                <a href="{{url('news/category/'.$val_cat->id)}}" >{{$val_cat->title}}<span class="icon-right-arrow"></span></a>
                             </li>
                             @endforeach
                         </ul>

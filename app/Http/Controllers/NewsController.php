@@ -20,9 +20,10 @@ class NewsController extends Controller
         $data['news'] = News::leftJoin('users','users.id','=','news.id_user')
             ->leftJoin('category_news','category_news.id','=','news.category')
             ->select('news.*','category_news.title as title_category','category_news.id as id_category','users.name')
+            ->where(function ($query) use ($search) {
+                $query->where('news.title', 'LIKE', "%{$search}%")
+                    ->orWhere('news', 'LIKE', "%{$search}%");})
             ->where('news.is_active',1)
-            ->where('news.title', 'LIKE', "%{$search}%")
-            ->orWhere('news', 'LIKE', "%{$search}%")
             ->get();
         $data['attribute'] = NewsAttribute::first();
         $data['categories'] = CategoryNews::get();

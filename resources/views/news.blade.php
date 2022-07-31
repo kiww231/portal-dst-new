@@ -73,6 +73,7 @@
                             <button type="submit"><i class="icon-magnifying-glass"></i></button>
                         </form>
                     </div>
+                    <div style="margin-bottom: 30px;"></div>
                     <div class="service-details__sidebar-service">
                         <h4 class="service-details__sidebar-title">Categories</h4>
                         <ul class="service-details__sidebar-service-list list-unstyled">
