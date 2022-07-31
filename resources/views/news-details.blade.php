@@ -37,7 +37,7 @@
                     <div class="news-details__content">
                         <ul class="list-unstyled news-details__meta">
                             <li><a href="news-details.html"><i class="far fa-user-circle"></i> by {{@$news->name}}</a></li>
-                            <!-- <li><a href="news-details.html"><i class="far fa-comments"></i> 2 Comments</a> -->
+                            <li><a href="{{url('news/category/'.@$news->id_category)}}"><i class="far fa-bookmark"></i> {{@$news->title_category}}</a>
                             </li>
                         </ul>
                         <h3 class="news-details__title">{{@$news->title}}</h3>
@@ -51,82 +51,22 @@
                             {!! $shareComponent !!}
                         </div>
                     </div>
-                    <!-- <div class="news-details__pagenation-box">
-                        <ul class="list-unstyled news-details__pagenation clearfix">
-                            <li>What is Holding Back the IT <br> Solution Industry?</li>
-                            <li>What is Holding Back the IT <br> Solution Industry?</li>
-                        </ul>
-                    </div> -->
-                    <!-- <div class="comment-one">
-                        <h3 class="comment-one__title">2 Comments</h3>
-                        <div class="comment-one__single">
-                            <div class="comment-one__image">
-                                <img src="assets/images/blog/comment-1-1.png" alt="">
-                            </div>
-                            <div class="comment-one__content">
-                                <h3>Kevin Martin <span>3 September, 2021</span></h3>
-                                <p>Lorem Ipsum is simply dummy text of the rinting and typesetting been the
-                                    industry standard dummy text ever sincer condimentum purus. In non ex at
-                                    ligula fringilla lobortis.</p>
-                                <a href="#" class="thm-btn comment-one__btn">reply</a>
-                            </div>
-                        </div>
-                        <div class="comment-one__single">
-                            <div class="comment-one__image">
-                                <img src="assets/images/blog/comment-1-2.png" alt="">
-                            </div>
-                            <div class="comment-one__content">
-                                <h3>Sarah Albert <span>3 September, 2021</span></h3>
-                                <p>Lorem Ipsum is simply dummy text of the rinting and typesetting been the
-                                    industry standard dummy text ever sincer condimentum purus. In non ex at
-                                    ligula fringilla lobortis.</p>
-                                <a href="#" class="thm-btn comment-one__btn">reply</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-form">
-                        <h3 class="comment-form__title">Leave a Comment</h3>
-                        <form action="assets/inc/sendemail.php" class="comment-one__form contact-form-validated"
-                            novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-xl-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="text" placeholder="Full Name" name="name">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="email" placeholder="Email Address" name="email">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="comment-form__input-box">
-                                        <textarea name="message" placeholder="Write Message"></textarea>
-                                    </div>
-                                    <button type="submit" class="thm-btn comment-form__btn">submit
-                                        comment</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div> -->
                 </div>
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="sidebar">
                     <div class="sidebar__single sidebar__search">
-                        <form action="#" class="sidebar__search-form">
-                            <input type="search" placeholder="Search here">
+                        <form action="{{url('news')}}" method="get" class="sidebar__search-form">
+                            <input type="search" name="s" placeholder="Cari...">
                             <button type="submit"><i class="icon-magnifying-glass"></i></button>
                         </form>
                     </div>
                     <div class="sidebar__single sidebar__categories">
-                        <h3 class="sidebar__title">Categories</h3>
+                        <h3 class="sidebar__title">Kategori</h3>
                         <ul class="sidebar__categories-list list-unstyled">
                             @foreach($categories as $val_cat)
                             <li>
-                                <a href="{{url('services/'.$val_cat->slug)}}" >{{$val_cat->title}}<span class="icon-right-arrow"></span></a>
+                                <a href="{{url('news?k='.$val_cat->title)}}" >{{$val_cat->title}}<span class="icon-right-arrow"></span></a>
                             </li>
                             @endforeach
                         </ul>

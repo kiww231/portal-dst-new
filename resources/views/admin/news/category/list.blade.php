@@ -36,12 +36,12 @@
         });
         az = {
             delete: function(id){
-                var base="{{url('admin/news')}}";
+                var base="{{url('admin/news-category')}}";
                 var url = base.concat('/',id);
                 var token = '{{ csrf_field() }}';
                 Swal.fire({
                     title: 'Delete Data?',
-                    text: "Data Projects akan di delete.",
+                    text: "Data Kategori News akan di delete.",
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonText: 'Ya'
@@ -58,14 +58,14 @@
                                 if(res == 'success'){
                                     Swal.fire({
                                         title: 'Deleted!',
-                                        text: 'Data News Berhasil di Delete.',
+                                        text: 'Data Kategori News Berhasil di Delete.',
                                         icon: 'success',
                                     })
-                                    window.location.href = "{{url('admin/news')}}/";
+                                    window.location.href = "{{url('admin/news-category')}}/";
                                 }else{
                                     swal({
                                         title: 'Error!',
-                                        text: 'Data News Gagal di Hapus.',
+                                        text: 'Data Kategori News Gagal di Hapus.',
                                         icon: 'error',
                                     })
                                 }
@@ -73,7 +73,7 @@
                             error: function (res) {
                                 Swal.fire({
                                     title: 'Error!',
-                                    text: 'Data News Gagal di Hapus.',
+                                    text: 'Data Kategori News Gagal di Hapus.',
                                     icon: 'error',
                                 })
                             }
@@ -103,11 +103,10 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">
-                            Data News
+                            Data Category News
                         </h3>
                         <div class="float-right">
-                            <a href="{{url('admin/news/create')}}" class="btn btn-primary btn-sm">Tambah Data</a>
-                            <a href="{{url('admin/news-category')}}" class="btn btn-info btn-sm">Category</a>
+                            <a href="{{url('admin/news-category/create')}}" class="btn btn-primary btn-sm">Tambah Data</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -115,12 +114,9 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th class="text-center w-5 p-3">No</th>
+                                    <th class="text-center">No</th>
                                     <th class="text-center">Judul</th>
-                                    <th class="text-center">Kategori</th>
-                                    <th class="text-center">Tanggal</th>
-                                    <th class="text-center">News</th>
-                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Deskripsi</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -128,20 +124,12 @@
                                 @php($no=1)
                                 @foreach($data as $val)
                                 <tr>
-                                    <td class="text-center width1">{{$no++}}</td>
+                                    <td class="text-center" style="width: 5%;">{{$no++}}</td>
                                     <td>{{$val->title}}</td>
-                                    <td>{{$val->title_category}}</td>
-                                    <td class="text-center">{{$val->date}}</td>
-                                    <td>{{substr(@$val->news_short, 0, 80) .((strlen(@$val->news_short) > 80) ? '...' : '')}}</td>
-                                    <td class="text-center">
-                                        @if($val->is_active == 1)
-                                            <sapn class="badge badge-success">Aktif</sapn>
-                                        @else
-                                            <sapn class="badge badge-danger">Tidak Aktif</sapn>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="{{url('admin/news/'.$val->id.'/edit')}}" class="btn btn-primary btn-xs"><i class="fa fa-pen"></i></a>
+                                    <td>{{$val->desccription}}</td>
+                                    
+                                    <td class="text-center" style="width: 15%;">
+                                        <a href="{{url('admin/news-category/'.$val->id.'/edit')}}" class="btn btn-primary btn-xs"><i class="fa fa-pen"></i></a>
                                         <a href="#" onclick="az.delete('{{$val->id}}')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>

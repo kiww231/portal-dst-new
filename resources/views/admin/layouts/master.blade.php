@@ -18,6 +18,11 @@
     <!-- Toastr -->
   <link rel="stylesheet" href="{{asset('assets/admin')}}/plugins/toastr/toastr.min.css">
   @stack('css')
+  <style>
+    star{
+      color: crimson;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -119,11 +124,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
+    Copyright &copy; {{date('Y')}} <strong>PT. Daya Sinergi Teknomandiri.</strong>
   </footer>
 
   <!-- Control Sidebar -->

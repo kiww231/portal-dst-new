@@ -74,7 +74,7 @@
     <section class="brand-two">
         <div class="container">
             <div class="brand-two__inner">
-                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
+                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 1000 }, "breakpoints": {
                     "0": {
                         "spaceBetween": 30,
                         "slidesPerView": 2

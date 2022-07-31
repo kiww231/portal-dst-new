@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CategoryNews;
 use App\Models\News;
 use App\Models\NewsAttribute;
 use Illuminate\Http\Request;
@@ -19,7 +20,11 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $data['data'] = Auth::user()->type == 1 ? News::all() : News::where('id_user',Auth::user()->id)->get();
+        $data['data'] = Auth::user()->type == 1 ? News::leftJoin('category_news','category_news.id','=','news.category')
+            ->select('news.*','category_news.title as title_category')
+            ->get() : News::leftJoin('category_news','category_new.id','=','news.category')
+            ->select('news.*','category_news.title as title_category')
+            ->where('id_user',Auth::user()->id)->get();
         return view('admin.news.list',$data);
     }
 
@@ -30,7 +35,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.form');
+        $data['category'] = CategoryNews::all();
+        return view('admin.news.form',$data);
     }
 
     /**
@@ -43,6 +49,7 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required|unique:news',
+            'category' => 'required',
             'date' => 'required',
             'news' => 'required',
             'is_active' => 'required',
@@ -96,6 +103,7 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data['result'] = News::find($id);
+        $data['category'] = CategoryNews::all();
         return view('admin.news.form',$data);
     }
 
@@ -110,6 +118,7 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required|unique:news,id,'.$id,
+            'category' => 'required',
             'news' => 'required',
             'date' => 'required',
             'is_active' => 'required',

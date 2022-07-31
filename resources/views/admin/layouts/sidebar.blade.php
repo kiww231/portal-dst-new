@@ -62,13 +62,13 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{url('admin/services')}}" class="nav-link {{ request()->is('admin/services*') && !request()->is('admin/services-*') ? 'active' : '' }}">
-                                    <i class="nav-icon far fa-circle"></i>
+                                    <i class="nav-icon fas fa-circle"></i>
                                     <p>Data Services</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{url('admin/services-attribute')}}" class="nav-link {{ request()->is('admin/services-attribute') ? 'active' : '' }}">
-                                    <i class="nav-icon far fa-circle"></i>
+                                    <i class="nav-icon fas fa-circle"></i>
                                     <p>Atribute Services</p>
                                 </a>
                             </li>
@@ -82,13 +82,13 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{url('admin/projects')}}" class="nav-link {{ request()->is('admin/projects*') && !request()->is('admin/projects-*') ? 'active' : '' }}">
-                                    <i class="nav-icon far fa-circle"></i>
+                                    <i class="nav-icon fas fa-circle"></i>
                                     <p>Data Projects</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{url('admin/projects-attribute')}}" class="nav-link {{ request()->is('admin/projects-attribute') ? 'active' : '' }}">
-                                    <i class="nav-icon far fa-circle"></i>
+                                    <i class="nav-icon fas fa-circle"></i>
                                     <p>Atribute Projects</p>
                                 </a>
                             </li>
@@ -102,13 +102,13 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{url('admin/news')}}" class="nav-link {{ request()->is('admin/news*') && !request()->is('admin/news-*') ? 'active' : '' }}">
-                                    <i class="nav-icon far fa-circle"></i>
+                                    <i class="nav-icon fas fa-circle"></i>
                                     <p>Data News</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{url('admin/news-attribute')}}" class="nav-link {{ request()->is('admin/news-attribute') ? 'active' : '' }}">
-                                    <i class="nav-icon far fa-circle"></i>
+                                    <i class="nav-icon fas fa-circle"></i>
                                     <p>Atribute News</p>
                                 </a>
                             </li>
@@ -122,13 +122,13 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{url('admin/career')}}" class="nav-link {{ request()->is('admin/career*') && !request()->is('admin/career-*') ? 'active' : '' }}">
-                                    <i class="nav-icon far fa-circle"></i>
+                                    <i class="nav-icon fas fa-circle"></i>
                                     <p>Data Career</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{url('admin/career-attribute')}}" class="nav-link {{ request()->is('admin/career-attribute') ? 'active' : '' }}">
-                                    <i class="nav-icon far fa-circle"></i>
+                                    <i class="nav-icon fas fa-circle"></i>
                                     <p>Atribute Career</p>
                                 </a>
                             </li>

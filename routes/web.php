@@ -21,8 +21,10 @@ Route::get('/contact', 'ContactController@index');
 Route::post('/send-testimoni', 'ContactController@testimoni');
 Route::get('/projects', 'ProjectsController@index');
 Route::get('/projects/{slug}', 'ProjectsController@show');
+
 Route::get('/news', 'NewsController@index');
 Route::get('/news/{slug}', 'NewsController@show');
+Route::get('/news/category/{id}','NewsController@category');
 Route::get('/career', 'CareerController@index');
 Route::get('/career/{slug}', 'CareerController@show');
 Route::get('/recruitment/{id}', 'RecruitmentController@index');
@@ -57,6 +59,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function(){
     Route::resource('/news','Admin\NewsController');
     Route::get('/news-attribute', 'Admin\NewsController@attribute');
     Route::put('/news-attribute/{id}', 'Admin\NewsController@attributeUpdate');
+    Route::resource('/news-category','Admin\CategoryNewsController');
     
     Route::resource('/career','Admin\CareerController');
     Route::get('/career-attribute', 'Admin\CareerController@attribute');

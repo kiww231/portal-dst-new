@@ -69,7 +69,7 @@
                         {{@$result ? method_field('PUT') : ''}}
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Judul</label>
+                                <label>Judul<star>*</star></label>
                                 <input type="text" class="form-control @error('title') is-invalid @enderror" placeholder="Masukan Judul" name="title" value="{{old('title', @$result->title)}}" />
                                 @error('title')
                                     <span class="invalid-feedback" role="alert">
@@ -78,7 +78,21 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Tanggal</label>
+                                <label>Kategori<star>*</star></label>
+                                <select class="form-control @error('category') is-invalid @enderror" name="category">
+                                    <option selected disabled>Pilih Kategori</option>
+                                    @foreach($category as $cat)
+                                    <option value="{{$cat->id}}" @if(old('category', @$result->category) == $cat->id) selected @endif>{{$cat->title}}</option>
+                                    @endforeach
+                                </select>
+                                @error('category')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Tanggal<star>*</star></label>
                                 <div class="input-group date" id="reservationdate" data-target-input="nearest">
                                     @php
                                         $date = @$result->date ? date('d/m/Y', strtotime(@$result->date)) : date('d/m/Y', strtotime(date('Y-m-d')));
@@ -95,7 +109,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Ringkasan News</label>
+                                <label>Ringkasan News<star>*</star></label>
                                 <input type="text" class="form-control @error('news_short') is-invalid @enderror" placeholder="Masukan Ringakasan News" name="news_short" value="{{old('news_short', @$result->news_short)}}" />
                                 @error('news_short')
                                     <span class="invalid-feedback" role="alert">
@@ -104,7 +118,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>News</label>
+                                <label>News<star>*</star></label>
                                 <textarea id="summernote" class="form-control @error('news') is-invalid @enderror" rows="6" placeholder="Tambah News" name="news">{!!old('news', @$result->news)!!}</textarea> 
                                 @error('news')
                                     <span class="invalid-feedback" role="alert">
@@ -113,7 +127,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">Thumbnail</label><br>
+                                <label for="exampleInputFile">Thumbnail<star>*</star></label><br>
                                 <img id="output_thm" src="{{asset('uploads/news/'.@$result->thumbnail)}}" style="height: 150px;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
@@ -132,7 +146,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">Gambar</label><br>
+                                <label for="exampleInputFile">Gambar<star>*</star></label><br>
                                 <img id="output_img" src="{{asset('uploads/news/'.@$result->image)}}" style="height: 150px;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
@@ -151,7 +165,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">Banner</label><br>
+                                <label for="exampleInputFile">Banner<star>*</star></label><br>
                                 <img id="output_banner" src="{{asset('uploads/news/'.@$result->banner)}}" style="height: 150px; width: 100%; overflow: hidden;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
@@ -172,7 +186,7 @@
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control @error('is_active') is-invalid @enderror" name="is_active">
-                                    <option selected disabled>Pilih Status</option>
+                                    <option selected disabled>Pilih Status<star>*</star></option>
                                     <option value="1" @if(@$result->is_active == '1') selected @endif>Aktif</option>
                                     <option value="0" @if(@$result->is_active == '0') selected @endif>Tidak Aktif</option>
                                 </select>

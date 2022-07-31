@@ -53,7 +53,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Status</label>
+                                <label>Status<star>*</star></label>
                                 <select class="form-control @error('is_active') is-invalid @enderror" name="is_active">
                                     <option selected disabled>Pilih Status</option>
                                     <option value="1" @if(@$result->is_active == 1) selected @endif>Aktif</option>
@@ -66,7 +66,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">Gambar</label><br>
+                                <label for="exampleInputFile">Gambar<star>*</star></label><br>
                                 <img id="output" src="{{asset('uploads/image_layer/'.@$result->image)}}" style="height: 150px;"/>
                                 <div class="input-group">
                                     <div class="custom-file">
