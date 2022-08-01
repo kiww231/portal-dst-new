@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\MailRecruitment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,11 @@ Route::get('/career', 'CareerController@index');
 Route::get('/career/{slug}', 'CareerController@show');
 Route::get('/recruitment/{id}', 'RecruitmentController@index');
 Route::post('/send-recruitment', 'RecruitmentController@store');
+
+Route::get('send-email', function (){
+    $status = \App\Models\Recruitment::find(1);
+    \Mail::to('rikiahmadf00@gmail.com')->send(new MailRecruitment($status));
+});
 
 Auth::routes();
 Route::group(['prefix' => 'admin','middleware' => ['auth']], function(){

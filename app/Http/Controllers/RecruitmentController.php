@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailRecruitment;
+use Illuminate\Support\Facades\DB;
 use App\Models\Career;
 use App\Models\Recruitment;
 use Illuminate\Http\Request;
+use Mail;
+use File;
 
 class RecruitmentController extends Controller
 {
@@ -30,7 +34,7 @@ class RecruitmentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -51,22 +55,24 @@ class RecruitmentController extends Controller
             'attachment2' => 'mimes:pdf|max:2048',
         ]);
         
+        DB::beginTransaction();
+
         $name_string = str_replace(' ', '', $request->name);
         $name_lower = strtolower($name_string);
         
         $app_letter_name = time() . '_app_letter_' . $name_lower . '.' . $request->file('application_letter')->extension();
-        $request->file('application_letter')->move(public_path('storage/recruiment'), $app_letter_name);
+        $request->file('application_letter')->move(public_path('uploads/recruiment'), $app_letter_name);
 
         $cv_name = time() . '_cv_' . $name_lower . '.' . $request->file('cv')->extension();
-        $request->file('cv')->move(public_path('storage/recruiment'), $cv_name);
+        $request->file('cv')->move(public_path('uploads/recruiment'), $cv_name);
 
         $att1_name = time() . '_att1_' . $name_lower . '.' . $request->file('attachment1')->extension();
-        $request->file('attachment1')->move(public_path('storage/recruiment'), $att1_name);
+        $request->file('attachment1')->move(public_path('uploads/recruiment'), $att1_name);
 
         $att2_name = null;
         if ($request->attachment2) {
             $att2_name = time() . '_att2_' . $name_lower . '.' . $request->file('attachment2')->extension();
-            $request->file('attachment2')->move(public_path('storage/recruiment'), $att2_name);
+            $request->file('attachment2')->move(public_path('uploads/recruiment'), $att2_name);
         }
 
         $data = $request->all();
@@ -78,10 +84,13 @@ class RecruitmentController extends Controller
         $data['attachment2'] = $att2_name;
         $status = Recruitment::create($data);
 
+        Mail::to('hrd@dayasinergi.id')->send(new MailRecruitment($status));
+
+        DB::commit();
         if($status){
-            return redirect('recruitment')->with('success','Data Lamaran Anda Berhasil dikirim!');
+            return redirect()->back()->with('success','Data Lamaran Anda Berhasil dikirim!');
         }else{
-            return redirect('recruitment')->with('error','Data Lamaran Anda Gagal dikirim!');
+            return redirect()->back()->with('error','Data Lamaran Anda Gagal dikirim!');
         }
     }
 
@@ -108,7 +117,7 @@ class RecruitmentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in uploads.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -120,7 +129,7 @@ class RecruitmentController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from uploads.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
