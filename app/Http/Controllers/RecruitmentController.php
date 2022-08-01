@@ -84,7 +84,7 @@ class RecruitmentController extends Controller
         $data['attachment2'] = $att2_name;
         $status = Recruitment::create($data);
 
-        Mail::to('hrd@dayasinergi.id')->send(new MailRecruitment($status));
+        Mail::to('rikiahmad1221@gmail.com')->send(new MailRecruitment($status));
 
         DB::commit();
         if($status){
